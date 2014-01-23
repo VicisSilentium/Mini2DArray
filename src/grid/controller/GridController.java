@@ -1,5 +1,6 @@
 package grid.controller;
 
+import grid.model.RestarauntMenu;
 import grid.view.GridView;
 
 public class GridController
@@ -7,11 +8,13 @@ public class GridController
 	private int[][] myFamilyAges;
 	private String[][] friendNames;
 	private GridView consoleView;
+	private RestarauntMenu [][] myMenu;
 
 	public GridController()
 	{
 		myFamilyAges = new int[3][3];
 		friendNames = new String[4][4];
+		myMenu = new RestarauntMenu[5][3];
 		consoleView = new GridView();
 	}
 
@@ -45,6 +48,30 @@ public class GridController
 		this.consoleView = consoleView;
 	}
 
+	private void fillMenu()
+	{
+		myMenu[0][0] = new RestarauntMenu();
+		myMenu[0][1] = new RestarauntMenu();
+		myMenu[0][2] = new RestarauntMenu();
+		
+		myMenu[1][0] = new RestarauntMenu();
+		myMenu[1][1] = new RestarauntMenu();
+		myMenu[1][2] = new RestarauntMenu();
+		
+		myMenu[2][0] = new RestarauntMenu();
+		myMenu[2][1] = new RestarauntMenu();
+		myMenu[2][2] = new RestarauntMenu();
+		
+		myMenu[3][0] = new RestarauntMenu();
+		myMenu[3][1] = new RestarauntMenu();
+		myMenu[3][2] = new RestarauntMenu();
+	
+		myMenu[4][0] = new RestarauntMenu();
+		myMenu[4][1] = new RestarauntMenu();
+		myMenu[4][2] = new RestarauntMenu();
+
+	}
+	
 	private void fillAges()
 	{
 		myFamilyAges[0][0]= 17;
@@ -63,7 +90,9 @@ public class GridController
 	
 	public void start()
 	{
+		fillMenu();
 		fillAges();
 		consoleView.printIntInformation(myFamilyAges);
+		consoleView.printRestaurantMenuInformation(myMenu);
 	}
 }
